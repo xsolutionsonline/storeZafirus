@@ -1,6 +1,7 @@
 import { Talle } from "src/infrastructure/persistence/enums/talle.enum";
 
-export class CreateProductDto {
+export interface Productos {
+  id: string;
   codigo: string;
   nombre: string;
   idCategoria: string;

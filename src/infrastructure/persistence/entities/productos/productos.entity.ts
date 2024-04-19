@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 import { Talle } from "../../enums/talle.enum";
 
 @Entity()
-export class ProductEntity {
+export class ProductosEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
