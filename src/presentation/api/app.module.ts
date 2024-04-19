@@ -1,15 +1,24 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { ProductsService } from "src/application/services/products/products.service";
-import { ProductsController } from "src/infrastructure/controllers/products/products.controller";
-import { ProductEntity } from "src/infrastructure/persistence/entities/products/product.entity";
-import { ProductRepositoryImpl } from "../../infrastructure/persistence/repositories/products/product.repository";
 import { config } from "dotenv";
+import { CategoriasService } from "src/application/services/categorias/categorias.service";
+import { ProductosService } from "src/application/services/productos/productos.service";
+import { CategoriasController } from "src/infrastructure/controllers/categorias/categorias.controller";
+import { ProductosController } from "src/infrastructure/controllers/productos/productos.controller";
+import { CategoriasEntity } from "src/infrastructure/persistence/entities/categorias/categorias.entity";
+import { ProductosEntity } from "src/infrastructure/persistence/entities/productos/productos.entity";
+import { CategoriasRepositoryImpl } from "src/infrastructure/persistence/repositories/categorias/categorias.repository";
+import { ProductosRepositoryImpl } from "src/infrastructure/persistence/repositories/productos/productos.repository";
+import { APP_INTERCEPTOR } from "@nestjs/core";
+import { DuplicateEntryInterceptor } from "src/interceptors/DuplicateEntry.interceptor";
+import { NotFoundInterceptor } from "src/interceptors/NotFound.interceptor";
+import { ApiResponseInterceptor } from "src/interceptors/ApiResponse.interceptor";
+import { SwaggerModule } from "@nestjs/swagger";
 config();
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([ProductEntity]),
+    TypeOrmModule.forFeature([ProductosEntity, CategoriasEntity]),
     TypeOrmModule.forRoot({
       type: "mysql",
       host: process.env.DB_HOST || "",
@@ -18,11 +27,29 @@ config();
       password: process.env.DB_PASSWORD || "",
       database: process.env.DB_DATABASE || "",
       autoLoadEntities: true,
-      entities: [ProductEntity],
+      entities: [ProductosEntity, CategoriasEntity],
       synchronize: true,
     }),
   ],
-  controllers: [ProductsController],
-  providers: [ProductsService, ProductRepositoryImpl],
+  controllers: [ProductosController, CategoriasController],
+  providers: [
+    ProductosService,
+    CategoriasService,
+    ProductosRepositoryImpl,
+    CategoriasRepositoryImpl,
+    SwaggerModule,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ApiResponseInterceptor,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: DuplicateEntryInterceptor,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: NotFoundInterceptor,
+    },
+  ],
 })
 export class AppModule {}
