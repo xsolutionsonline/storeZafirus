@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "aad7ad87-a8a8-4307-8975-04a17c36a23c",
+		"name": "zafirus categorias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17477932",
+		"_collection_link": "https://crimson-spaceship-60905.postman.co/workspace/PlayList~8947ac27-1b0e-4a82-b2e4-aab937beb03a/collection/17477932-aad7ad87-a8a8-4307-8975-04a17c36a23c?action=share&source=collection_link&creator=17477932"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Categoria tres\",\r\n  \"descripcion\": \"ejemplo categoria 3\",\r\n  \"activa\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findall",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findbyid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"codigo\": \"ABC12345\",\r\n  \"nombre\": \"Producto de ejemplo 3\",\r\n  \"idCategoria\": \"categoría_id\",\r\n  \"precio\": 20.99,\r\n  \"talle\": \"MEDIUM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/categorias/0a79cfb3-0768-43fd-9195-fe2afef31bb6/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categorias",
+						"0a79cfb3-0768-43fd-9195-fe2afef31bb6",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Categoria tres\",\r\n  \"descripcion\": \"ejemplo categoria 3\",\r\n  \"activa\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/categorias/6534b899-bce6-4af8-aaee-086c270ad69a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categorias",
+						"6534b899-bce6-4af8-aaee-086c270ad69a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/categorias/384f3fd8-ab20-481a-b6d6-2509c8aaaae7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categorias",
+						"384f3fd8-ab20-481a-b6d6-2509c8aaaae7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

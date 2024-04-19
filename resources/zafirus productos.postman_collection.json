@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "7cc123f7-0c0d-4a97-aba9-a45c88d82c8d",
+		"name": "zafirus productos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17477932",
+		"_collection_link": "https://crimson-spaceship-60905.postman.co/workspace/PlayList~8947ac27-1b0e-4a82-b2e4-aab937beb03a/collection/17477932-7cc123f7-0c0d-4a97-aba9-a45c88d82c8d?action=share&source=collection_link&creator=17477932"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"peb3\",\r\n    \"nombre\": \"Producto de ejemplo 3\",\r\n    \"categoria\": {\r\n        \"id\": \"6534b899-bce6-4af8-aaee-086c270ad69a\",\r\n        \"nombre\": \"Categoria tres\",\r\n        \"descripcion\": \"ejemplo categoria 3\",\r\n        \"activa\": true\r\n    },\r\n    \"precio\": 370,\r\n    \"talle\": \"EXTRA_LARGE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findall",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find-active-categoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productos/findAllActiveCategories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos",
+						"findAllActiveCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ByTalleMediumOrLarge",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productos/ByTalleMediumOrLarge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos",
+						"ByTalleMediumOrLarge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findbyid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"codigo\": \"ABC12345\",\r\n  \"nombre\": \"Producto de ejemplo 3\",\r\n  \"idCategoria\": \"categoría_id\",\r\n  \"precio\": 20.99,\r\n  \"talle\": \"MEDIUM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productos/findById/215c1f45-867f-4689-ac13-b00f8756c270",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos",
+						"findById",
+						"215c1f45-867f-4689-ac13-b00f8756c270"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"peb123\",\r\n    \"nombre\": \"Producto de ejemplo 5\",\r\n    \"categoria\": {\r\n        \"id\": \"1c968ead-c2f5-4806-ba09-67dc14a33f2d\",\r\n        \"nombre\": \"Categoria Uno\",\r\n        \"descripcion\": \"ejemplo categoria 1\",\r\n        \"activa\": true\r\n    },\r\n    \"precio\": 50.25,\r\n    \"talle\": \"MEDIUM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productos/0a79cfb3-0768-43fd-9195-fe2afef31bb6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos",
+						"0a79cfb3-0768-43fd-9195-fe2afef31bb6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productos/11ff9eed-b7e4-46b2-a55f-eb4691c3691b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos",
+						"11ff9eed-b7e4-46b2-a55f-eb4691c3691b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

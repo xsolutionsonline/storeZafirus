@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { CategoriasDto } from "src/application/dtos/categorias/categorias.dto";
 import { Categorias } from "src/domain/models/categorias/categorias.model";
 import { CategoriasRepositoryImpl } from "src/infrastructure/persistence/repositories/categorias/categorias.repository";
+import { v4 as uuidv4 } from "uuid";
 
 @Injectable()
 export class CategoriasService {
@@ -19,7 +20,7 @@ export class CategoriasService {
 
   async create(crearCategoriaDto: CategoriasDto): Promise<Categorias> {
     const categoria: Categorias = {
-      id: undefined,
+      id: uuidv4(),
       ...crearCategoriaDto,
     };
     return this.categoriasRepository.create(categoria);
